@@ -6,6 +6,27 @@ pixel-for-pixel, screen-for-screen.
 
 <!-- Screens: Lock Distracting Apps · Reduce Screen Addiction · Stay Focused Every Day · Occupation · Screen Time · Set daily goal · Enable Permissions · Select Apps · All set -->
 
+## Preview
+
+A complete, motion-rich **9-screen** flow — built screen-for-screen from the
+Figma design and verified by rendering every screen at a mobile viewport.
+
+**Onboarding (swipe):**
+1. Lock Distracting Apps
+2. Reduce Screen Addiction
+3. Stay Focused Every Day
+4. What is your occupation?
+5. What is your daily average Screen Time?
+6. Set your daily screen-time goal
+7. Enable Essential Permissions
+
+**Setup:** 8. Select Apps (app locks · lock schedule · unlock method) → 9. **You're all set!** radar summary
+
+Every screen is dark-themed with a violet hero glow, a twinkling starfield,
+animated hero art and staggered entrances. All controls — toggles, answer pills,
+category chips, the draggable goal ring and the unlock-method picker — are fully
+interactive.
+
 ## Flow
 
 `Onboarding (7 swipe slides)` → `Select Apps (config)` → `All set (radar)`
