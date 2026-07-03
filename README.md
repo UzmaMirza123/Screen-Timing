@@ -1,10 +1,14 @@
 # FocusLock AI — Onboarding
 
-An animated 5-screen onboarding flow for **FocusLock AI**, a screen-time / focus
+An animated onboarding + setup flow for **FocusLock AI**, a screen-time / focus
 app, built with **Expo (React Native + TypeScript)** to match the Figma design
 pixel-for-pixel, screen-for-screen.
 
-<!-- Screens: Lock Distracting Apps · Reduce Screen Addiction · Stay Focused Every Day · Set your daily screen-time goal · Enable Essential Permissions -->
+<!-- Screens: Lock Distracting Apps · Reduce Screen Addiction · Stay Focused Every Day · Occupation · Screen Time · Set daily goal · Enable Permissions · Select Apps · All set -->
+
+## Flow
+
+`Onboarding (7 swipe slides)` → `Select Apps (config)` → `All set (radar)`
 
 ## Screens
 
@@ -13,13 +17,18 @@ pixel-for-pixel, screen-for-screen.
 | 1 | **Lock Distracting Apps** | Social app icons orbiting a glowing lock | Constellation slowly revolves, icons stay upright, lock pulses |
 | 2 | **Reduce Screen Addiction** | Floating phone + stat cards | Phone & cards drift, violet halo breathes, lock glows |
 | 3 | **Stay Focused Every Day** | Pomodoro focus ring | Gradient progress arc sweeps in, play button pulses, streak/score badges float |
-| 4 | **Set your daily screen-time goal** | Interactive goal ring | Drag the knob **or** tap 1h/2h/3h/4h — arc, knob and number spring to the value |
-| 5 | **Enable Essential Permissions** | Shield badge | Shield breathes, green check springs in, permission rows stagger up |
+| 4 | **What is your occupation?** | — | Multi-select occupation rows with icons + check radios |
+| 5 | **Daily average Screen Time?** | Phone check-badge | Single-select answer pills |
+| 6 | **Set your daily screen-time goal** | Interactive goal ring | Drag the knob **or** tap 1h/2h/3h/4h — arc, knob and number spring to the value |
+| 7 | **Enable Essential Permissions** | Shield badge | Shield breathes, green check springs in, permission rows stagger up |
+| 8 | **Select Apps** (config) | — | Live app toggles + locked counter, category chips, search, lock-schedule toggles, unlock-method picker |
+| 9 | **You're all set!** (radar) | Radar dial | 4 coloured metric arcs, sweeping ring, springy DONE check, streak card |
 
-Every slide shares a dark navy→black gradient backdrop, a violet radial hero
-glow, a twinkling starfield, and a gradient CTA. Titles / subtitles / cards
-**stagger in** each time a slide becomes active, and the pager dots morph as you
-swipe.
+Every onboarding slide shares a dark navy→black gradient backdrop, a violet
+radial hero glow, a twinkling starfield, and a gradient CTA. Titles / subtitles /
+cards **stagger in** each time a slide becomes active, and the pager dots morph
+as you swipe. "Select Apps" is reached from the final slide; "Confirm Lock" leads
+to the radar summary, whose **Replay Onboarding** restarts the flow.
 
 ## Tech stack
 
@@ -52,13 +61,16 @@ App.tsx                     # fonts + splash, onboarding <-> "all set" state
 index.ts                    # Expo entry
 src/
   theme/                    # colors, typography (Poppins), layout tokens
-  components/               # GradientBackground, Starfield, PagerDots,
-                            #   PrimaryButton, FeatureRow, StatCard, SlideLayout, …
+  components/               # GradientBackground, Starfield, PagerDots, Toggle,
+                            #   Chip, OptionRow, PillOption, AppToggleRow,
+                            #   ScheduleRow, UnlockMethodCard, PrimaryButton, …
   illustrations/            # OrbitIllustration, PhoneIllustration, PomodoroRing,
-                            #   GoalRing, ShieldBadge  (SVG + Animated)
+                            #   GoalRing, ShieldBadge, CheckBadge, RadarDone
   screens/
     OnboardingScreen.tsx    # swipeable pager + pinned dots/CTA/footer
-    slides/                 # Slide1…Slide5
+    SelectAppsScreen.tsx    # app/schedule/unlock config
+    AllSetScreen.tsx        # radar summary
+    slides/                 # 7 onboarding slides
 ```
 
 ## Notes on fidelity

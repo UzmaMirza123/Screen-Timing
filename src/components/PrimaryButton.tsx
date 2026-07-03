@@ -9,9 +9,10 @@ import { radius } from '../theme/layout';
 type Props = {
   label: string;
   onPress?: () => void;
+  leadingIcon?: keyof typeof Ionicons.glyphMap;
 };
 
-export function PrimaryButton({ label, onPress }: Props) {
+export function PrimaryButton({ label, onPress, leadingIcon }: Props) {
   const scale = useRef(new Animated.Value(1)).current;
 
   const pressIn = () =>
@@ -28,6 +29,9 @@ export function PrimaryButton({ label, onPress }: Props) {
           end={{ x: 1, y: 0.5 }}
           style={styles.button}
         >
+          {leadingIcon ? (
+            <Ionicons name={leadingIcon} size={19} color={colors.white} style={styles.leading} />
+          ) : null}
           <Text style={styles.label}>{label}</Text>
           <Ionicons name="arrow-forward" size={20} color={colors.white} style={styles.arrow} />
         </LinearGradient>
@@ -59,5 +63,6 @@ const styles = StyleSheet.create({
     color: colors.white,
     letterSpacing: 0.2,
   },
+  leading: { marginRight: 8, marginTop: 1 },
   arrow: { marginLeft: 8, marginTop: 1 },
 });

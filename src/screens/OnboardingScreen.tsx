@@ -16,16 +16,18 @@ import { screen, spacing } from '../theme/layout';
 import { Slide1LockApps } from './slides/Slide1LockApps';
 import { Slide2ReduceAddiction } from './slides/Slide2ReduceAddiction';
 import { Slide3StayFocused } from './slides/Slide3StayFocused';
+import { SlideOccupation } from './slides/SlideOccupation';
+import { SlideScreenTime } from './slides/SlideScreenTime';
 import { Slide4SetGoal } from './slides/Slide4SetGoal';
 import { Slide5Permissions } from './slides/Slide5Permissions';
 
-const COUNT = 5;
+const COUNT = 7;
 const PAGE = screen.width;
 
 type Props = { onComplete: () => void };
 
 // Glow sits a little higher on illustration-heavy slides, lower on text-first ones.
-const GLOW_Y = [0.3, 0.32, 0.3, 0.34, 0.28];
+const GLOW_Y = [0.3, 0.32, 0.3, 0.28, 0.3, 0.34, 0.28];
 
 export function OnboardingScreen({ onComplete }: Props) {
   const insets = useSafeAreaInsets();
@@ -69,8 +71,10 @@ export function OnboardingScreen({ onComplete }: Props) {
         <Slide1LockApps focused={index === 0} onSkip={onComplete} />
         <Slide2ReduceAddiction focused={index === 1} onSkip={onComplete} />
         <Slide3StayFocused focused={index === 2} onSkip={onComplete} />
-        <Slide4SetGoal focused={index === 3} onSkip={onComplete} />
-        <Slide5Permissions focused={index === 4} onSkip={onComplete} />
+        <SlideOccupation focused={index === 3} onSkip={onComplete} />
+        <SlideScreenTime focused={index === 4} onSkip={onComplete} />
+        <Slide4SetGoal focused={index === 5} onSkip={onComplete} />
+        <Slide5Permissions focused={index === 6} onSkip={onComplete} />
       </Animated.ScrollView>
 
       <View style={[styles.bottomBar, { paddingBottom: insets.bottom + 14 }]}>

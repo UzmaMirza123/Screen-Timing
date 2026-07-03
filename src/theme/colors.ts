@@ -61,6 +61,23 @@ export const colors = {
   violetTintBg: 'rgba(139,92,246,0.14)',
   violetTintBorder: 'rgba(139,92,246,0.30)',
 
+  pink: '#F472B6',
+  pinkTintBg: 'rgba(244,114,182,0.12)',
+  pinkTintBorder: 'rgba(244,114,182,0.28)',
+
+  gold: '#E8B24C',
+  goldTintBg: 'rgba(232,178,76,0.12)',
+  goldTintBorder: 'rgba(232,178,76,0.32)',
+
+  // Toggle / switch
+  switchOn: '#8B5CF6',
+  switchOff: '#2A2740',
+  switchKnob: '#FFFFFF',
+
+  // Selected list row (occupation / options)
+  optionActiveBg: 'rgba(139,92,246,0.22)',
+  optionActiveBorder: 'rgba(139,92,246,0.65)',
+
   // Brand app icon fills
   instagram: ['#F58529', '#DD2A7B', '#8134AF'] as const,
   snapchat: '#FFFC00',
